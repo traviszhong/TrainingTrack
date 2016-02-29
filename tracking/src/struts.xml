@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="true" />
+<!--  
+    <package name="default" namespace="/" extends="struts-default">
+
+        <default-action-ref name="index" />
+
+        <global-results>
+            <result name="error">/error.jsp</result>
+        </global-results>
+
+        <global-exception-mappings>
+            <exception-mapping exception="java.lang.Exception" result="error"/>
+        </global-exception-mappings>
+
+        <action name="index">
+            <result type="redirectAction">
+                <param name="actionName">HelloWorld</param>
+                <param name="namespace">/example</param>
+            </result>
+        </action>
+    </package>
+
+    <include file="example.xml"/>
+-->
+    <!-- Add packages here -->
+    <package name="default" namespace="/" extends="struts-default">
+		<action name="signin" class="com.tracking.actions.SignInAction">
+    		<result name="success">
+ 				/WEB-INF/jsp/signin.jsp
+        	</result>
+    	</action>
+    	<action name="signup" class="com.tracking.actions.SignUpAction">
+    		<result name="success">
+ 				/WEB-INF/jsp/signup.jsp
+        	</result>
+    	</action>
+    	<action name="signinck" class="com.tracking.actions.SignInCheckAction">
+    		<result name="success">
+ 				/WEB-INF/jsp/dashboard.jsp
+        	</result>
+        	<result name="failure">
+ 				/WEB-INF/jsp/failed.jsp
+        	</result>
+    	</action>
+    	<action name="signupck" class="com.tracking.actions.SignUpCheckAction">
+    		<result name="success">
+ 				/WEB-INF/jsp/dashboard.jsp
+        	</result>
+        	<result name="failed">
+ 				/WEB-INF/jsp/failed.jsp
+        	</result>
+    	</action>
+    	<action name="addplan" class="com.tracking.actions.AddPlanAction">
+    		<result name="success">
+ 				/WEB-INF/jsp/addplan.jsp
+        	</result>
+    	</action>
+    	<action name="addplanck" class="com.tracking.actions.AddPlanCheckAction">
+    		<result name="success">
+ 				/WEB-INF/jsp/dashboard.jsp
+        	</result>
+        	<result name="failed">
+ 				/WEB-INF/jsp/failed.jsp
+        	</result>
+    	</action>
+    	<action name="viewplan" class="com.tracking.actions.ViewPlanAction">
+    		<result name="success">
+ 				/WEB-INF/jsp/plandetails.jsp
+        	</result>
+        	<result name="failed">
+ 				/WEB-INF/jsp/failed.jsp
+        	</result>
+    	</action>
+    	<action name="worksubmit" class="com.tracking.actions.WorkSubmitAction">
+    		<result name="success">
+ 				/WEB-INF/jsp/plandetails.jsp
+        	</result>
+        	<result name="failed">
+ 				/WEB-INF/jsp/failed.jsp
+        	</result>
+    	</action>
+    	<action name="goback" class="com.tracking.actions.GoBackAction">
+    		<result name="success">
+ 				/WEB-INF/jsp/dashboard.jsp
+        	</result>
+    	</action>
+    </package>
+</struts>
